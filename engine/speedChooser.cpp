@@ -44,7 +44,7 @@ namespace Anki {
       }
       
       // Random acceleration
-      motionProfile.accel_mmps2 = Util::numeric_cast<float>(_robot.GetRNG().RandDblInRange(minAccel_mmps2, maxAccel_mmps2));
+      motionProfile.accel_mmps2 = (Util::numeric_cast<float>(_robot.GetRNG().RandDblInRange(minAccel_mmps2, maxAccel_mmps2))) * 1.5;
       
       // Deceleration is opposite of acceleration
       motionProfile.decel_mmps2 = maxAccel_mmps2 - motionProfile.accel_mmps2 + minAccel_mmps2;
@@ -53,12 +53,12 @@ namespace Anki {
       Pose3d pose;
       goal.GetWithRespectTo(_robot.GetPose(), pose);
       f32 distToObject = pose.GetTranslation().Length();
-      f32 speed = (distToObject) * (maxSpeed_mmps - minSpeed_mmps) / (distToObjectForMaxSpeed_mm) + minSpeed_mmps;
+      f32 speed = ((distToObject) * (maxSpeed_mmps - minSpeed_mmps) / (distToObjectForMaxSpeed_mm) + minSpeed_mmps) * 10;
       speed = CLIP(speed, minSpeed_mmps, maxSpeed_mmps);
       motionProfile.speed_mmps = speed;
       
-      // Reverse speed 75% of forward speed
-      motionProfile.reverseSpeed_mmps = motionProfile.speed_mmps * 0.75f;
+      // Reverse speed 100% of forward speed
+      motionProfile.reverseSpeed_mmps = motionProfile.speed_mmps;
       
       LOG_INFO("SpeedChooser.GetPathMotionProfile", "distToGoal:%f using speed:%f revSpeed:%f accel:%f",
                distToObject,

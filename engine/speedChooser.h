@@ -44,15 +44,15 @@ namespace Anki {
         bool _enabled = true;
 
         // Max speed a generated motion profile can have
-        const float maxSpeed_mmps = MAX_SAFE_WHEEL_SPEED_MMPS;
+        const float maxSpeed_mmps = 10000;
       
         // Min speed a generated motion profile can have
-        const float minSpeed_mmps = MAX_SAFE_WHILE_CARRYING_WHEEL_SPEED_MMPS;
+        const float minSpeed_mmps = 10000;
 
-        const float minAccel_mmps2 = 80.0f;
-        const float maxAccel_mmps2 = 100.0f;
+        const float minAccel_mmps2 = 1000.0f;
+        const float maxAccel_mmps2 = 10000.0f;
       
-        const float distToObjectForMaxSpeed_mm = 300;
+        const float distToObjectForMaxSpeed_mm = 0;
         
         std::vector<Signal::SmartHandle> _signalHandles;
     };
