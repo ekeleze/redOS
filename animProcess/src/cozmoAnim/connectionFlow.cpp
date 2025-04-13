@@ -44,8 +44,8 @@ namespace {
 u32 _pin = 123456;
 
 const f32 kRobotNameScale = 0.7f;
-const std::string kURL = "v.pvic.xyz";
-const ColorRGBA   kColor(0.9f, 0.5f, 0.9f, 1.f);
+const std::string kURL = "v.vicw.xyz";
+const ColorRGBA   kColor(1.0f, 0.0f, 0.0f, 1.f);
 
 const char* kShowPinScreenSpriteName = "pairing_icon_key";
 
