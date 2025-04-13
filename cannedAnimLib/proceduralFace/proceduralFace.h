@@ -74,7 +74,7 @@ public:
   static const s32 NominalEyeHeight;   //    V2:  57;  V1: 40;
   static const s32 NominalEyeWidth;    //    V2:  43;  V1: 30;
 
-  static constexpr f32 DefaultHue = 1.0f;
+  static constexpr f32 DefaultHue = 0.45f;
   static constexpr f32 DefaultSaturation = 1.0f;
 
   using Value = f32;
